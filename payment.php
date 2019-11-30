@@ -1,175 +1,138 @@
-<!DOCTYPE html>
-<html>
+<?php
+    require('config.php');
+?>
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            font-family: Arial;
-            font-size: 17px;
-            padding: 8px;
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        .row {
-            display: -ms-flexbox;
-            /* IE10 */
-            display: flex;
-            -ms-flex-wrap: wrap;
-            /* IE10 */
-            flex-wrap: wrap;
-            margin: 0 -16px;
-        }
-        
-        .col-25 {
-            -ms-flex: 25%;
-            /* IE10 */
-            flex: 25%;
-        }
-        
-        .col-50 {
-            -ms-flex: 50%;
-            /* IE10 */
-            flex: 50%;
-        }
-        
-        .col-75 {
-            -ms-flex: 75%;
-            /* IE10 */
-            flex: 75%;
-        }
-        
-        .col-25,
-        .col-50,
-        .col-75 {
-            padding: 0 16px;
-        }
-        
-        .container {
-            background-color: #f2f2f2;
-            padding: 5px 20px 15px 20px;
-            border: 1px solid lightgrey;
-            border-radius: 3px;
-        }
-        
-        input[type=text] {
-            width: 100%;
-            margin-bottom: 20px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        
-        label {
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .icon-container {
-            margin-bottom: 20px;
-            padding: 7px 0;
-            font-size: 24px;
-        }
-        
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            width: 100%;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 17px;
-        }
-        
-        .btn:hover {
-            background-color: #45a049;
-        }
-        
-        a {
-            color: #2196F3;
-        }
-        
-        hr {
-            border: 1px solid lightgrey;
-        }
-        
-        span.price {
-            float: right;
-            color: grey;
-        }
-        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-        
-        @media (max-width: 800px) {
-            .row {
-                flex-direction: column-reverse;
-            }
-            .col-25 {
-                margin-bottom: 20px;
-            }
-        }
-    </style>
 
-    <script>
-        $(document).ready(function(){
-            $('.boitier').val(localStorage.getItem('boitier'));
-        })
-    </script>
-</head>
+    <!DOCTYPE html>
+    <html>
 
-<body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-    <h2>Payment</h2>
-    <p>After the payment, you will receive your WalkWifi Code in your email.</p>
-    <div class="row">
-        <div class="col-75">
-            <div class="container">
-                <form action="/action_page.php">
-                    <input type="hidden" name="email" value = "<?php echo $_GET['your_email']; ?>">
-                    <input type="hidden" name="boitier" class="boitier">
-                    <div class="row">
-                        <div class="col-50">
-                            <h3>Payment</h3>
-                            <label for="fname">Accepted Cards</label>
-                            <div class="icon-container">
-                                <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                <i class="fa fa-cc-amex" style="color:blue;"></i>
-                                <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                <i class="fa fa-cc-discover" style="color:orange;"></i>
+    <body>
+        <div class="payment">
+            <div class="container">              
+                <div class="payment_page">
+                    <div class="logo">
+                        <a class="" href="#">
+                            <img src="logo.png" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <select class="selectpicker translate" data-width="fit">
+                            <option  data-content='<span class="flag-icon flag-icon-us"></span> English' value="en">English</option>
+                            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español' value="es">Español</option>
+                            <option  data-content='<span class="flag-icon flag-icon-fr"></span> France' value="fr">French</option>
+                            <option  data-content='<span class="flag-icon flag-icon-cn"></span> Chinese' value="cn">Chinese</option>
+                        </select>
+                    </div>
+                    <h2 class="lang" key="payment"></h2>
+                    <p class="lang" key="payment_text"></p>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">                               
+                                <span class="lang" key = "credit_card"> </span>
+                                </a>
+                            </h4>
                             </div>
-                            <label for="cname">Name on Card</label>
-                            <input type="text" id="cname" name="cardname" placeholder="John More Doe" required>
-                            <label for="ccnum">Credit card number</label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
-                            <label for="expmonth">Exp Month</label>
-                            <input type="text" id="expmonth" name="expmonth" placeholder="September" required>
-                            <div class="row">
-                                <div class="col-50">
-                                    <label for="expyear">Exp Year</label>
-                                    <input type="text" id="expyear" name="expyear" placeholder="2018" required>
-                                </div>
-                                <div class="col-50">
-                                    <label for="cvv">CVV</label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="352" required>
-                                </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <form action="action.php" method="post" class="payment_form">                                    
+                                    <input type="hidden" name="boitier" class="boitier">
+                                    <input type="hidden" name="email1" class="email1">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="card_num" class="lang" key="card_num"></label>
+                                                <input type="text" name="card_num" class="form-control" required placeholder="1111-2222-3333">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exp_date" class="lang" key="exp_date"></label>
+                                                <input class="form-control" type="date" vlue="" id="example-date-input" name="exp_date" placehoder="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="card_name" class="lang" key="card_name"></label>
+                                                <input type="text" name="card_name" class="form-control" placeholder="John More Doe" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="cv" class="lang" key="cv"></label>
+                                                <input type="text" name="cv" class="form-control" placeholder="352" required>
+                                            </div>
+                                        </div>
+                                        <dvi class="col-md-4">
+                                            <button class="btn btn-success lang" key="submit"></button>
+                                        </dvi>
+                                    </div>
+                                
+                                </form>   
+                                <div class="icon-container">
+                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                </div> 
                             </div>
                         </div>
-
                     </div>
-                    <input type="submit" value="Continue to checkout" class="btn">
-                </form>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span class="lang" key = "Alipay"> </span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span class="lang" key = "TenPay"> </span>                          
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                </div>
             </div>
         </div>
-    </div>
 
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+        <script src="lang.js"></script>
+        <script src="main.js"></script>
+        <script>
+           
 
-</html>
+        </script>
+    </body>
+
+    </html>

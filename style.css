@@ -1,0 +1,174 @@
+.first_page {
+    background: url(back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* color: #fff; */
+}
+
+#lang_flag {
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.open {
+    background-color: #fff;
+}
+
+#contact-form {
+    background-color: #12305a;
+    margin-top: 50px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 20px;
+}
+
+.first_option {
+    margin-bottom: 20px;
+}
+
+.datepicker {
+    color: #3e3e3e;
+}
+
+.search_btn {
+    color: #fff;
+    background-color: #ff5907;
+    border-color: #ed4e00;
+    margin-top: 25px;
+    color: #fff;
+}
+
+.form_title {
+    font-size: 40px;
+}
+
+.form_text {
+    font-size: 18px;
+    padding: 10px 0;
+    font-style: italic;
+}
+
+.logo {
+    text-align: center;
+}
+
+#contact-form label {
+    font-size: 18px;
+    padding-right: 10px;
+    color: #fff;
+}
+
+.check_span {
+    font-size: 14px;
+}
+
+[data-toggle="collapse"] .fa:before {
+    content: "\f139";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+    content: "\f13a";
+}
+
+.payment_page {
+    padding-top: 100px;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.fa-cc-visa:before,
+.fa-cc-amex:before,
+.fa-cc-mastercard:before,
+.fa-cc-discover:before {
+    font-size: 40px;
+}
+
+.icon-container {
+    float: right;
+}
+
+.payment_page {
+    width: 60%;
+    margin: auto;
+}
+
+.action_page {
+    background: url(back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding-top: 150px;
+}
+
+.payment {
+    background: url(back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: #fff;
+}
+
+.action {
+    color: #fff;
+    background-color: #0056b3;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.action p {
+    font-size: 18px;
+}
+
+.out {
+    float: right;
+}
+
+.out a {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.payment_form label {
+    color: #000;
+}
+
+.panel-group .panel {
+    margin-bottom: -5px;
+}
+
+@media(max-width: 768px) {
+    .first_page {
+        background: url(mobile.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #fff;
+        background-position: center center;
+        min-height: 100vh;
+        height: auto;
+    }
+    .navbar-brand img {
+        width: 100%;
+    }
+    #lang_flag {
+        width: min-content;
+        right: 20px;
+    }
+    .payment_page {
+        width: 100%;
+    }
+    .payment {
+        background: url(mobile.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: #fff;
+        height: auto;
+        min-height: 100vh;
+        background-position: center center;
+    }
+}
