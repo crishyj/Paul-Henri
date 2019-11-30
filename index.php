@@ -5,8 +5,8 @@
     <!DOCTYPE html>
     <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
@@ -16,20 +16,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css">
-
     </head>
 
     <body>
         <div class="first_page">
             <div class="container">
-                <div id="header">
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-
-                        <div class="nav navbar-nav navbar-right" id="lang_flag">
-
-                        </div>
-                    </nav>
-                </div>
                 <div class="logo">
                     <a class="" href="#">
                         <img src="logo.png" alt="">
@@ -37,8 +28,8 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
                         <div>
                             <select class="selectpicker translate" data-width="fit">
                                 <option  data-content='<span class="flag-icon flag-icon-us"></span> English' value="en">English</option>
@@ -312,7 +303,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="appoint_date" class="lang" key="starting_date"> </label>
-                                        <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                        <div class="input-group date" data-date-format="dd.mm.yyyy" id="start">
                                             <input type="text" class="form-control" id="starting_date" placeholder="dd.mm.yyyy" name="starting_date" required>
                                             <div class="input-group-addon">
                                                 <span class="glyphicon glyphicon-th"></span>
@@ -324,7 +315,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="appoint_date" class="lang" key="ending_date"> </label>
-                                        <div class="input-group date" data-date-format="dd.mm.yyyy">
+                                        <div class="input-group date" data-date-format="dd.mm.yyyy" id="end">
                                             <input type="text" class="form-control" id="ending_date" placeholder="dd.mm.yyyy" name="ending_date" required>
                                             <div class="input-group-addon">
                                                 <span class="glyphicon glyphicon-th"></span>
@@ -339,18 +330,37 @@
                                         <input type="text" name="code" id="code" class="form-control"  required>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-9">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="1" required><span class="lang check_span" key="term"></span></label>
+                                        <label><input type="checkbox" value="1" required style="margin-top: 7px">
+                                            <span class="lang check_span" key="">I agree to the <a herf = "" data-toggle="modal" data-target="#myModal"> terms of servie</a> and general conditions</span>
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-3 text-left">
                                     <div class="form-group">
                                         <button class="btn search_btn lang" key="submit"></button>
                                     </div>
                                 </div>
                             </div>
                         </form>
+                    </div>
+                    <div id="myModal" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                    
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"></h4>
+                          </div>
+                          <div class="modal-body">
+                            <p class="lang" key ="term"></p>
+                          </div>
+                         
+                        </div>
+                    
+                      </div>
                     </div>
                 </div>
             </div>
@@ -374,6 +384,10 @@
                         let starting_date = $('#starting_date').val();
                         let ending_date = $('#ending_date').val();
                         let code = $('#code').val();
+                        let start = new Date(starting_date);
+                        let end = new Date(ending_date);
+                        let diff = (end-start)/(1000 * 3600 * 24);
+                        console.log(diff);
                         
                         $.ajax({
                             type: "POST",
@@ -390,8 +404,12 @@
                                     localStorage.setItem('starting_date', starting_date);
                                     localStorage.setItem('ending_date', ending_date);
                                     localStorage.setItem('code', code);
-                                    localStorage.setItem('boitier', data);  
+                                    localStorage.setItem('boitier', data);
+                                    localStorage.setItem('diff', diff);
                                     window.location.href = "payment.php";
+                                }
+                                else{
+                                    alert('The code you entered is not valid');
                                 }
                             }
                         });

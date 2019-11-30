@@ -1,6 +1,8 @@
 <?php
 	$emailFrom = "test@test.com";
-	$to = $_POST["email1"];        
+	$to = $_POST["email1"];      
+	$diff = $_POST['diff'];
+	$wifi_cost = $diff*2;
 	$subject = "Congratulations!";
 	$message = '<body >
 		<div style="width:500px; margin:10px auto; background:#f1f1f1; border:1px solid #ccc">
@@ -15,7 +17,13 @@
 				</tr>
 				<tr>              
 					<td style="font-size:16px; font-weight:bold"><strong>' . $_POST["boitier"].'</strong></td>
-				</tr>							            
+				</tr>
+				<tr>
+					<td style="font-size:14px; color:#323232">Wifi Cost: </td>     
+				</tr>
+				<tr>              
+					<td style="font-size:16px; font-weight:bold"><strong>' . $wifi_cost.'&euro;</strong></td>
+				</tr>
 			</table>
 		</div>
 	</body>
@@ -31,8 +39,8 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
@@ -55,21 +63,22 @@
             </a>
         </div>
         <div class="container">
-            <div>
-                <select class="selectpicker translate" data-width="fit">
-                    <option  data-content='<span class="flag-icon flag-icon-us"></span> English' value="en">English</option>
-                    <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español' value="es">Español</option>
-                    <option  data-content='<span class="flag-icon flag-icon-fr"></span> France' value="fr">French</option>
-                    <option  data-content='<span class="flag-icon flag-icon-cn"></span> Chinese' value="cn">Chinese</option>
-                </select>
-            </div>
-            <div class="out">
-                <a class="float-right" href = "index.php">Logout</a>
-            </div>
             <div class="action">
-                <h2 class="mb-5 lang" key="action"></h2>
-                <p> <span class="lang" key="action_text"></span> : <?php echo $_POST["email1"]; ?>, WALKWIFI.</p>
-        </div>
+                <div>
+                    <select class="selectpicker translate" data-width="fit">
+                        <option  data-content='<span class="flag-icon flag-icon-us"></span> English' value="en">English</option>
+                        <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español' value="es">Español</option>
+                        <option  data-content='<span class="flag-icon flag-icon-fr"></span> France' value="fr">French</option>
+                        <option  data-content='<span class="flag-icon flag-icon-cn"></span> Chinese' value="cn">Chinese</option>
+                    </select>
+                </div>
+    
+                <div class="action1">
+                    <h2 class="mb-5 lang" key="action"></h2>
+                    <p> <span class="lang" key="action_text"></span> : <?php echo $_POST["email1"]; ?>, WALKWIFI.</p>
+                    <p> <span class="lang" key="action_text1"></span>  <?php echo $wifi_cost; ?> &euro;</p>
+                </div>
+            </div>
         </div>
     </div>
     

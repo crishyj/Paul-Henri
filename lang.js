@@ -18,6 +18,9 @@ var arrLang = {
         "TenPay": "TenPay",
         "action": "Actions",
         "action_text": "Your payment has been succesfully sent. Thank you. You will receive your WALKWIFI Code to the email adress ",
+        "action_text1": "Wifi cost:",
+        "cost1":"Your total cost is : ",
+        "cost2": "Please select an option to pay: ",
     },
     "cn": {
         "email": "电子邮件",
@@ -38,6 +41,9 @@ var arrLang = {
         "TenPay": "TenPay",
         "action": "行动",
         "action_text": "您的付款已成功发送。谢谢。您将通过电子邮件地址收到WALKWIFI代码，",
+        "action_text1": "无线上网费用：",
+        "cost1":"您的总费用为 : ",
+        "cost2": "请选择付款方式: ",
     },
     "es": {
         "email": "Correo electrónico",
@@ -58,6 +64,9 @@ var arrLang = {
         "TenPay": "TenPay",
         "action": "Acciones",
         "action_text": "Su pago se ha enviado correctamente. Gracias. Recibirá su código WALKWIFI en la dirección de correo electrónico",
+        "action_text1": "Costo de wifi:",
+        "cost1":"Su costo total es : ",
+        "cost2": "Por favor seleccione una opción para pagar: ",
     },
     "fr": {
         "email": "Email",
@@ -78,5 +87,8 @@ var arrLang = {
         "TenPay": "TenPay",
         "action": "Actions",
         "action_text": "Votre paiement a été envoyé avec succès. Merci. Vous recevrez votre code WALKWIFI à l'adresse e-mail",
+        "action_text1": "Coût Wifi:",
+        "cost1":"Votre coût total est : ",
+        "cost2": "Veuillez choisir une option pour payer: ",
     }
 };

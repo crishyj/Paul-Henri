@@ -6,7 +6,7 @@
     <!DOCTYPE html>
     <html>
 
-    <head>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css">
@@ -33,23 +33,30 @@
                             <option  data-content='<span class="flag-icon flag-icon-cn"></span> Chinese' value="cn">Chinese</option>
                         </select>
                     </div>
+
                     <h2 class="lang" key="payment"></h2>
                     <p class="lang" key="payment_text"></p>
+                    <div class="cost_box">
+                        <div><span class= "lang" key = "cost1"></span> <span class="cost"></span>&euro;</div>
+                        <div> <span class="lang" key = "cost2"></span> </div>
+                    </div>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">                               
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">                               
                                 <span class="lang" key = "credit_card"> </span>
                                 </a>
                             </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <form action="action.php" method="post" class="payment_form">                                    
                                     <input type="hidden" name="boitier" class="boitier">
                                     <input type="hidden" name="email1" class="email1">
+                                     <input type="hidden" name="diff" class="diff">
                                     <div class="row">
+                                        
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label for="card_num" class="lang" key="card_num"></label>
@@ -59,7 +66,14 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exp_date" class="lang" key="exp_date"></label>
-                                                <input class="form-control" type="date" vlue="" id="example-date-input" name="exp_date" placehoder="">
+                                                <div class="input-group date1" data-date-format="yyyy-mm-dd">
+                                                    <input type="text" class="form-control" id="exp_date" data-date="02-2012" data-date-format="mm-yyyy"name="exp_date" required>
+                                                    <div class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-th"></span>
+                                                    </div>
+                                                </div>
+                                                    
+                                                <!--<input class="form-control" type="date" vlue="" id="example-date-input" name="exp_date" placehoder="">-->
                                             </div>
                                         </div>
                                         <div class="col-md-8">
